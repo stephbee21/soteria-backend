@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 
-@Controller()
+@Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
@@ -92,4 +92,11 @@ export class AuthController {
     // Could call Keycloak’s "execute-actions-email"
     return { message: `Password reset link sent to ${email}` };
   }
+
+  @Get('ping')
+  ping() {
+    return { message: 'pong' };
+  }
+
+  
 }
